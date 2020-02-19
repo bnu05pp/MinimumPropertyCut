@@ -1,6 +1,6 @@
 RUN
-	g++ main.cpp -std=c++11 -o main
 	
+	g++ main.cpp -std=c++11 -o main
 	./main RDFData Data_name tag partition
 	
 	(
