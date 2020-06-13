@@ -589,6 +589,8 @@ graph::metis(string txt_name,string tag)
 	while(getline(in,str))
 	{
 		triples++;
+		if(triples % 10000 == 0)
+			cout << "loading triples : " << triples << endl;
         str.resize(str.length()-2);
         vector<string> s;
         s=split(str,tag);
