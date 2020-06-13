@@ -60,9 +60,9 @@ graph::loadGraph(string txt_name,string tag)
 
 
 	limit=entityCnt/part/2;
-	printf("limit: %d\n",limit);
-	printf("triples: %d\n", triples);
-	printf("entityCnt: %d\n",entityCnt);
+	printf("limit: %lld\n",limit);
+	printf("triples: %lld\n", triples);
+	printf("entityCnt: %lld\n",entityCnt);
 	printf("predicate: %lu\n", predicate.size());
 
 	printf("entity->preType: %d\n",preType);
@@ -618,8 +618,11 @@ graph::metis(string txt_name,string tag)
 	stringstream cmd_ss;
     cmd_ss << "./gpmetis " << RDF << ".tmp " << part;
     cout << cmd_ss.str().c_str() << endl;
-	system(("./gpmetis /opt/workspace/metis/"+RDF+".tmp 4").data());
-	ifstream In(("./"+RDF+".tmp.part.4").data());
+	system(cmd_ss.str().c_str());
+	stringstream metis_ss;
+    metis_ss << "./" << RDF << ".tmp.part." << part;
+	cout << metis_ss.str().c_str() << endl;
+	ifstream In(metis_ss.str().c_str());
 	ofstream Out(("./"+RDF+"METISInternalPoints.txt").data());
 	int idx=1;
 	while(getline(In,str))
