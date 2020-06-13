@@ -33,9 +33,13 @@ public:
 	void greed2();
 	void unionBlock(vector<int> &choice,int goal);
 	void randEntity(string txt_name,string tag);
+	void metis(string txt_name,string tag);
+	// void update();
 	string RDF;	
+	int part;
 
 private:
+	set<string> predicate;
 	unordered_map<string,int> entityToID;
 	vector<string> IDToEntity;
 	unordered_map<string,int> predicateToID;
@@ -45,13 +49,17 @@ private:
 	vector<unordered_map<int,int> >coarseningPoint;
 	vector<int> entityTriples;
 	set<pair<string,int> >finalResult;
+
+	// edge_cnt : the key is the property and the value is the count of the property
 	unordered_map<string,int> edge_cnt;
 	vector<bool> invalid;
-	int triples;
-	int entityCnt;
+	long long triples;
+
+	// entityCnt : entity count
+	long long entityCnt;
 	int preType;
-	int limit;	
+	long long limit;	
 	long long ans;	
-	int crossEgdeCnt;
-	int invalidEdgeCnt;																																		
+	long long crossEgdeCnt;
+	long long invalidEdgeCnt;																																		
 };
