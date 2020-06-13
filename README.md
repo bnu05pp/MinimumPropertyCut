@@ -13,6 +13,7 @@ RUN
 			2 PCP-Basic
 			3 PCP
 			4 Subject Hash
+			5 METIS
 	)
 	Ex:	./main /data/RDFData/LUBM/LUBM10M.nt LUBM10M 1 1
 
