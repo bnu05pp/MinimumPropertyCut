@@ -577,6 +577,56 @@ graph::randEntity(string txt_name,string tag)
 }
 
 void 
+graph::randPre(string txt_name,string tag)
+{
+	map<string, int> preToID;
+    map<int, string> IDToPre;
+    int triples=0;
+    int preCnt=0;
+    vector<pair<long long,int> > block;
+
+	ifstream in(txt_name.data());
+	string line;
+	while(getline(in,line))
+	{
+		triples++;
+		if(triples % 10000 == 0)
+			cout << "loading triples for vertical partitioning : " << triples << endl;
+		line.resize(line.length()-2);
+		vector<string> s;
+		s=split(line,tag);
+		//predicate.insert(s[1]);
+		string _pre = s[1];
+		if(preToID.count(_pre)==0)
+		{
+			preToID[_pre]=++preCnt;
+			IDToPre[preCnt]=_pre;
+			block.push_back(make_pair(0,preCnt));
+		}
+		block[preToID[_pre]-1].first++;
+	}
+	in.close();
+
+	sort(block.begin(), block.end());
+    vector<int>pre_pos(preCnt+1);
+    priority_queue<pair<long long,int> >q;
+    for(int i = 0; i < part - 1; i++)
+		q.push(make_pair(0,i));
+    ofstream outFile(RDF+"vp_InternalPoints.txt"); 
+    for(int i=block.size()-1;i>=0;i--)
+    {
+        pair<long long,int> tmp=q.top();
+        q.pop();
+        tmp.first-=block[i].first;
+        pre_pos[block[i].second]=tmp.second;
+        q.push(tmp);
+        outFile<<IDToPre[block[i].second]<<"\t"<<tmp.second<<endl;
+    }
+    outFile.close();
+	// update();
+}
+
+void 
 graph::metis(string txt_name,string tag)
 {
 	ifstream in(txt_name.data());

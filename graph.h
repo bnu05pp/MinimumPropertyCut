@@ -33,6 +33,7 @@ public:
 	void greed2();
 	void unionBlock(vector<int> &choice,int goal);
 	void randEntity(string txt_name,string tag);
+	void randPre(string txt_name,string tag);
 	void metis(string txt_name,string tag);
 	// void update();
 	string RDF;	

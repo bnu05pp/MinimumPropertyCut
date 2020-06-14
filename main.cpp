@@ -24,6 +24,10 @@ main(int argc, char* argv[])
 		{
 			test->randEntity(txt_name,sign);
 		}
+		else if(op=="6")
+		{
+			test->randPre(txt_name,sign);
+		}
 		else 
 		{
 			test->loadGraph(txt_name,sign);
