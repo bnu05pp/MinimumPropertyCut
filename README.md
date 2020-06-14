@@ -16,6 +16,8 @@ RUN
 			2 PCP-Basic
 			3 PCP
 			4 Subject Hash
+			5 METIS
+			6 Vertical Partition
 
 		part:the number of partitons
 	)
