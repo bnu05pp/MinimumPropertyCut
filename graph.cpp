@@ -610,7 +610,7 @@ graph::randPre(string txt_name,string tag)
 	sort(block.begin(), block.end());
     vector<int>pre_pos(preCnt+1);
     priority_queue<pair<long long,int> >q;
-    for(int i = 0; i < part - 1; i++)
+    for(int i = 0; i < part; i++)
 		q.push(make_pair(0,i));
     ofstream outFile(RDF+"vp_InternalPoints.txt"); 
     for(int i=block.size()-1;i>=0;i--)
