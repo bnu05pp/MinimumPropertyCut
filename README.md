@@ -12,9 +12,9 @@ RUN
 			2 "\t"
 
 		partition:four methods
-			1 PCP-Exact
-			2 PCP-Basic
-			3 PCP
+			1 Minimum Property-Cut Exact
+			2 Minimum Property-Cut Basic
+			3 Minimum Property-Cut
 			4 Subject Hash
 			5 METIS
 			6 Vertical Partition
