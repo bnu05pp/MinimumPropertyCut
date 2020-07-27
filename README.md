@@ -25,4 +25,5 @@ RUN
 
 	Results are in Data_nameInternalPoints.txt and Data_namecrossingEdges.txt(1,2,3)
 				or Data_namesub_hash_InternalPoints.txt(4)
+				or Data_nameMETIS_InternalPoints.txt(4)
 	
